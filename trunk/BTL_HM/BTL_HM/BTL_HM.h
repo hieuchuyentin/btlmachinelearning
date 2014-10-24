@@ -18,8 +18,7 @@ class CBTL_HMApp : public CWinAppEx
 {
 public:
 	CBTL_HMApp();
-
-
+	
 // Overrides
 public:
 	virtual BOOL InitInstance();
@@ -27,7 +26,6 @@ public:
 // Implementation
 	UINT  m_nAppLook;
 	BOOL  m_bHiColorIcons;
-
 	
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
