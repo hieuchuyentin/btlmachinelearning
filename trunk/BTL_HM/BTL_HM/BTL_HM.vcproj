@@ -190,6 +190,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\BTL_HM.vcproj.LeTrungHieu-PC.Le Trung Hieu.user"
+				>
+			</File>
+			<File
 				RelativePath=".\BTL_HMDialog.cpp"
 				>
 			</File>
@@ -213,6 +217,10 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\Stemmer.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -228,11 +236,19 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Globals.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
 				>
 			</File>
 			<File
 				RelativePath=".\stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Stemmer.h"
 				>
 			</File>
 		</Filter>

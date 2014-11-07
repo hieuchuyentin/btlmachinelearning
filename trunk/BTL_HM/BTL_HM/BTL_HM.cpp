@@ -70,7 +70,7 @@ BOOL CBTL_HMApp::InitInstance()
 	
 	CBTL_HMDialog dlg;
 	m_pMainWnd = &dlg;
-	
+
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
 	{
