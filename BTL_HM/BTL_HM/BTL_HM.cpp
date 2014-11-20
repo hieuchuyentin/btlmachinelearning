@@ -69,7 +69,7 @@ BOOL CBTL_HMApp::InitInstance()
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 	
 	CBTL_HMDialog dlg;
-	m_pMainWnd = &dlg;
+	//m_pMainWnd = &dlg;
 
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
