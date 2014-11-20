@@ -27,9 +27,9 @@ public:
 	void step6();
 	void stemmer(CString s);
 	void createArrayChar(CString s);
+	CString getindex(CString s);
 private:
-	char b[INC];
-	int  i, i_end,j, k;
-	
+	char * b;
+	int  i, i_end, j, k;
 };
 

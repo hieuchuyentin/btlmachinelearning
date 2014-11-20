@@ -221,6 +221,10 @@
 				RelativePath=".\Stemmer.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\StopWord.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -249,6 +253,10 @@
 			</File>
 			<File
 				RelativePath=".\Stemmer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\StopWord.h"
 				>
 			</File>
 		</Filter>

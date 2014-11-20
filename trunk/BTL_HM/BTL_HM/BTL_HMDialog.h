@@ -1,19 +1,11 @@
 #pragma once
 #include "afxwin.h"
-#include "Stemmer.h"
 
-typedef struct TOKEN_INFO
-{
-	CString sTokenName;
-	double dPercent;
-} TOKEN_INFO;
-typedef CList<TOKEN_INFO, TOKEN_INFO&> TOKEN_LIST;
-
-typedef CList<int, int&> NUMBER_LIST;
+#include "StopWord.h"
 
 // CBTL_HMDialog dialog
 
-#define SZ_NAME_FILE_SPAM_TRAIN		_T("train_SPAM.ems")
+#define SZ_NAME_FILE_SPAM_TRAIN		_T("test_SPAM.ems")
 #define SZ_NAME_FILE_NORMAL_TRAIN	_T("train_GEN.ems")
 #define SZ_NAME_FILE_SPAM_TEST		_T("MailTestSpam.txt")
 #define SZ_NAME_FILE_NORMAL_TEST	_T("MailTestNormal.txt")
@@ -24,15 +16,7 @@ typedef CList<int, int&> NUMBER_LIST;
 #define TEXT_END_TAG	_T("</TEXT_NORMAL>")
 #define LEN_END_TAG		14
 
-class StopWord
-{
-public:
-	StopWord();
-	~StopWord();
-	void readStopWords(CList<CString>& listStopWord);
-	void GetFrequency(CStringList& listMail, TOKEN_LIST& buffer );
-private:
-};
+
 
 
 class CBTL_HMDialog : public CDialog
@@ -59,8 +43,8 @@ public:
 	CStringList m_listMailTestSpam;
 	CStringList m_listMailTestNormal;
 	CStringList m_listMailTestAll;
-	TOKEN_LIST m_listTokenSpam;
-	TOKEN_LIST m_listTokenNormal;
+	TOKEN_LIST m_ListTokenSpam;
+	TOKEN_LIST m_ListTokenNormal;
 	CStringList m_listKey;
 	TOKEN_LIST m_listProbabilityKeyOnSpam;
 	TOKEN_LIST m_listProbabilityKeyOnNormal;
@@ -73,7 +57,7 @@ public:
 	afx_msg void OnBnClickedButton3();
 
 	void GetMail(__in CString sPath, __out CStringList& sListMail);
-	//void GetFrequency(CStringList& listMail, __out TOKEN_LIST& listToken);
+	//void GetFrequency(CStringList& listMail, __out TOKEN_LIST& TOKEN_INFO);
 	void GetKey(TOKEN_LIST& listNormal, TOKEN_LIST& listSpam, __out CStringList& listKey);
 	void GetAppearOneMail(CStringList& listKey, CString sMail, __out NUMBER_LIST& listFrequency);
 	void CalculateProbability(CStringList& listMail, CStringList& listKey, __out TOKEN_LIST& listProbability);
