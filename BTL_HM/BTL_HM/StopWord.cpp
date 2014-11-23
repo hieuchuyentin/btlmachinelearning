@@ -86,11 +86,17 @@ void StopWord::ProcessStopWord(CStringList& listMail, TOKEN_LIST& listToken)
 	CString restoken;
 	Stemmer stem = Stemmer();
 	int cusPos;
-
+	TOKEN_INFO s;
 	listToken.RemoveAll();
+	POSITION p;
+	CString mail;
 	
+	stem.resetIndex();
+	stem.stemmer(_T("goes"));
+	mail = stem.toString();
+
 	for (int i = 0; i < listMail.GetCount(); i++){
-		CString mail = listMail.GetAt(listMail.FindIndex(i));
+		mail = listMail.GetAt((listMail.FindIndex(i)));
 		mail.Replace('\b', ' ');
 		mail.Replace('\t', ' ');
 		mail.Replace('\n', ' ');
@@ -116,10 +122,10 @@ void StopWord::ProcessStopWord(CStringList& listMail, TOKEN_LIST& listToken)
 			if (listStopWord.Find(restoken) == NULL){
 				stem.resetIndex();
 				stem.stemmer(restoken);
-				TOKEN_INFO s;
+				
 				s.sTokenName = stem.toString();
 				s.dPercent = 1;
-				POSITION p = listToken.Find(s);
+				p = listToken.Find(s);
 				if (p == NULL)
 				{
 					listToken.AddTail(s);
