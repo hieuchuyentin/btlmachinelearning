@@ -1,7 +1,7 @@
 #pragma once
 #include "afxwin.h"
 
-#include "StopWord.h"
+#include "ProcessWord.h"
 
 // CBTL_HMDialog dialog
 
@@ -16,7 +16,7 @@
 #define TEXT_END_TAG	_T("</TEXT_NORMAL>")
 #define LEN_END_TAG		14
 
-
+#define HASH_COUNT 5000
 
 
 class CBTL_HMDialog : public CDialog
@@ -43,13 +43,13 @@ public:
 	CStringList m_listMailTestSpam;
 	CStringList m_listMailTestNormal;
 	CStringList m_listMailTestAll;
-	TOKEN_LIST m_ListTokenSpam;
-	TOKEN_LIST m_ListTokenNormal;
+	TOKEN_LIST m_ListTokenSpam[HASH_COUNT];
+	TOKEN_LIST m_ListTokenNormal[HASH_COUNT];
 	CStringList m_listKey;
-	TOKEN_LIST m_listProbabilityKeyOnSpam;
-	TOKEN_LIST m_listProbabilityKeyOnNormal;
+	TOKEN_LIST m_listProbabilityKeyOnSpam[HASH_COUNT];
+	TOKEN_LIST m_listProbabilityKeyOnNormal[HASH_COUNT];
 	int m_nKeyNumber;
-	StopWord stopword;
+	ProcessWord stopword;
 
 public:
 	afx_msg void OnBnClickedButton1();
@@ -58,13 +58,16 @@ public:
 
 	void GetMail(__in CString sPath, __out CStringList& sListMail);
 	//void GetFrequency(CStringList& listMail, __out TOKEN_LIST& TOKEN_INFO);
-	void GetKey(TOKEN_LIST& listNormal, TOKEN_LIST& listSpam, __out CStringList& listKey);
+	void GetKey(TOKEN_LIST listNormal[], TOKEN_LIST listSpam[], __out CStringList& listKey);
 	void GetAppearOneMail(CStringList& listKey, CString sMail, __out NUMBER_LIST& listFrequency);
-	void CalculateProbability(CStringList& listMail, CStringList& listKey, __out TOKEN_LIST& listProbability);
+	void CalculateProbability(CStringList& listMail, CStringList& listKey, __out TOKEN_LIST listProbability[]);
+	void CountWord(CStringList& listMail, TOKEN_LIST listToken[]);
+	int HashString(CString sToken);
 
 	CEdit textFolderTrain;
 	CEdit textFolderTest;
 	CButton btTrain;
 	CButton btTest;
 	CButton btEvaluate;
+
 };
