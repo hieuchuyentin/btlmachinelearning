@@ -8,13 +8,13 @@ typedef CList<TOKEN_INFO, TOKEN_INFO&> TOKEN_LIST;
 
 typedef CList<int, int&> NUMBER_LIST;
 
-class StopWord
+class ProcessWord
 {
 public:
-	StopWord();
-	~StopWord();
+	ProcessWord();
+	~ProcessWord();
 	void readStopWords();
-	void ProcessStopWord(CStringList& listMail, TOKEN_LIST& listToken);
+	void StopAndStemWord(CStringList& listMail);
 	CList<CString> listStopWord;
 	//TOKEN_LIST buffer;//Danh sach tu  va so lan suat hien
 private:

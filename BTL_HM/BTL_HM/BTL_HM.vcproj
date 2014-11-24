@@ -198,6 +198,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcessWord.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -221,10 +225,6 @@
 				RelativePath=".\Stemmer.cpp"
 				>
 			</File>
-			<File
-				RelativePath=".\StopWord.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -244,6 +244,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\ProcessWord.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
 				>
 			</File>
@@ -253,10 +257,6 @@
 			</File>
 			<File
 				RelativePath=".\Stemmer.h"
-				>
-			</File>
-			<File
-				RelativePath=".\StopWord.h"
 				>
 			</File>
 		</Filter>

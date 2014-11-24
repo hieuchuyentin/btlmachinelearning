@@ -27,32 +27,32 @@ CString Stemmer::getindex(CString s)
 	tr.Format(_T("%d"), s.GetLength());
 	return tr;
 }
-void Stemmer::add(char ch)
-{
-	if (i == (sizeof(b) / sizeof(char)))
-	{
-		char * new_b = new char[i + INC];
-		for (int c = 0; c < i; c++)
-		{
-			new_b[c] = b[c];
-		}
-		*b = *new_b;
-	}
-	b[i++] = ch;
-}
-void Stemmer::add(char w[], int wLen)
-{
-	if (i + wLen >= INC)
-	{
-		char * new_b = new char[i + wLen + INC];
-		for (int c = 0; c < i; c++) new_b[c] = b[c];
-		*b = *new_b;
-	}
-	/*for (int c = 0; c < wLen; c++) b[i++] = w[c];*/
-	strncpy(b + i, w, wLen);
-	b[i + wLen] = 0;
-	i = i + wLen;
-}
+// void Stemmer::add(char ch)
+// {
+// 	if (i == (sizeof(b) / sizeof(char)))
+// 	{
+// 		char * new_b = new char[i + INC];
+// 		for (int c = 0; c < i; c++)
+// 		{
+// 			new_b[c] = b[c];
+// 		}
+// 		*b = *new_b;
+// 	}
+// 	b[i++] = ch;
+// }
+// void Stemmer::add(char w[], int wLen)
+// {
+// 	if (i + wLen >= INC)
+// 	{
+// 		char * new_b = new char[i + wLen + INC];
+// 		for (int c = 0; c < i; c++) new_b[c] = b[c];
+// 		*b = *new_b;
+// 	}
+// 	/*for (int c = 0; c < wLen; c++) b[i++] = w[c];*/
+// 	strncpy(b + i, w, wLen);
+// 	b[i + wLen] = 0;
+// 	i = i + wLen;
+// }
 CString Stemmer::toString()
 {
 // 	CString tr;
@@ -501,13 +501,28 @@ void Stemmer::step6()
 }
 void Stemmer::createArrayChar(CString s)
 {
-	char* new_b = new char[s.GetLength()];
-	for (int c = 0; c < s.GetLength(); c++)
+// 	char* new_b = new char[s.GetLength()];
+// 	for (int c = 0; c < s.GetLength(); c++)
+// 	{
+// 		new_b[c] = s.GetAt(c);
+// 	}
+// 	add(new_b, s.GetLength());
+// 	delete new_b;
+	if (i + s.GetLength() >= INC)
 	{
-		new_b[c] = s.GetAt(c);
+		char * new_b = new char[i + s.GetLength() + INC];
+		for (int c = 0; c < i; c++) 
+			new_b[c] = b[c];
+		
+		delete b;
+		b = new_b;
+		
 	}
-	add(new_b, s.GetLength());
-
+	for (int c = 0; c < s.GetLength(); c++)
+		b[c + i] = s.GetAt(c);
+	b[i + s.GetLength()] = 0;
+		
+	i = i + s.GetLength();
 }
 void Stemmer::stemmer(CString s)
 {
