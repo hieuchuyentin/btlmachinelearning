@@ -14,7 +14,7 @@ public:
 	ProcessWord();
 	~ProcessWord();
 	void readStopWords();
-	void StopAndStemWord(CStringList& listMail);
+	void StemMailList(CStringList& listMail);
 	CList<CString> listStopWord;
 	//TOKEN_LIST buffer;//Danh sach tu  va so lan suat hien
 private:
