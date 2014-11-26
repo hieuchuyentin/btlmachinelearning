@@ -1,4 +1,5 @@
 #pragma once
+#include "Stemmer.h"
 typedef struct TOKEN_INFO
 {
 	CString sTokenName;
@@ -14,7 +15,7 @@ public:
 	ProcessWord();
 	~ProcessWord();
 	void readStopWords();
-	void StemMailList(CStringList& listMail);
+	void PreProcessListMail(CStringList& listMail);
 	CList<CString> listStopWord;
 	//TOKEN_LIST buffer;//Danh sach tu  va so lan suat hien
 private:

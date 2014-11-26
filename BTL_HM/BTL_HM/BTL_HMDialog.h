@@ -5,7 +5,7 @@
 
 // CBTL_HMDialog dialog
 
-#define SZ_NAME_FILE_SPAM_TRAIN		_T("test_SPAM.ems")
+#define SZ_NAME_FILE_SPAM_TRAIN		_T("train_SPAM.ems")
 #define SZ_NAME_FILE_NORMAL_TRAIN	_T("train_GEN.ems")
 #define SZ_NAME_FILE_SPAM_TEST		_T("MailTestSpam.txt")
 #define SZ_NAME_FILE_NORMAL_TEST	_T("MailTestNormal.txt")
@@ -63,6 +63,7 @@ public:
 	void CalculateProbability(CStringList& listMail, CStringList& listKey, __out TOKEN_LIST listProbability[]);
 	void CountWord(CStringList& listMail, TOKEN_LIST listToken[]);
 	int HashString(CString sToken);
+	void StemWord(TOKEN_LIST listToken[]);
 
 	CEdit textFolderTrain;
 	CEdit textFolderTest;
