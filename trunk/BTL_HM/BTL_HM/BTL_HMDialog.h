@@ -46,8 +46,8 @@ public:
 	TOKEN_LIST m_ListTokenSpam[HASH_COUNT];
 	TOKEN_LIST m_ListTokenNormal[HASH_COUNT];
 	CStringList m_listKey;
-	TOKEN_LIST m_listProbabilityKeyOnSpam[HASH_COUNT];
-	TOKEN_LIST m_listProbabilityKeyOnNormal[HASH_COUNT];
+	TOKEN_LIST m_listProbabilityKeyOnSpam;
+	TOKEN_LIST m_listProbabilityKeyOnNormal;
 	int m_nKeyNumber;
 	ProcessWord stopword;
 
@@ -60,7 +60,7 @@ public:
 	//void GetFrequency(CStringList& listMail, __out TOKEN_LIST& TOKEN_INFO);
 	void GetKey(TOKEN_LIST listNormal[], TOKEN_LIST listSpam[], __out CStringList& listKey);
 	void GetAppearOneMail(CStringList& listKey, CString sMail, __out NUMBER_LIST& listFrequency);
-	void CalculateProbability(CStringList& listMail, CStringList& listKey, __out TOKEN_LIST listProbability[]);
+	void CalculateProbability(CStringList& listMail, CStringList& listKey, __out TOKEN_LIST& listProbability);
 	void CountWord(CStringList& listMail, TOKEN_LIST listToken[]);
 	int HashString(CString sToken);
 	void StemWord(TOKEN_LIST listToken[]);
