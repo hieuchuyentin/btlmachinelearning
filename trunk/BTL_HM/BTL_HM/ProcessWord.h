@@ -5,7 +5,17 @@ typedef struct TOKEN_INFO
 	CString sTokenName;
 	double dPercent;
 } TOKEN_INFO;
+
+typedef struct TOKEN_SCORE
+{
+	CString sToken;
+	double  dbHamScore;
+	double  dbSpamScore;
+} TOKEN_SCORE;
+
 typedef CList<TOKEN_INFO, TOKEN_INFO&> TOKEN_LIST;
+
+typedef CList<TOKEN_SCORE> TOKEN_SCORE_LIST;
 
 typedef CList<int, int&> NUMBER_LIST;
 
