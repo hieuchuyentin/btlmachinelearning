@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="BTL_HM"
 	ProjectGUID="{EB58444E-8FE7-44FB-A4FA-E0D988326E10}"
 	RootNamespace="BTL_HM"
@@ -237,10 +237,6 @@
 			</File>
 			<File
 				RelativePath=".\BTL_HMDialog.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Globals.h"
 				>
 			</File>
 			<File
