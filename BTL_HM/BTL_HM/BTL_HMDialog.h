@@ -5,8 +5,8 @@
 
 // CBTL_HMDialog dialog
 
-#define SZ_NAME_FILE_SPAM_TRAIN		_T("test_SPAM.ems")
-#define SZ_NAME_FILE_NORMAL_TRAIN	_T("test_GEN.ems")
+#define SZ_NAME_FILE_SPAM_TRAIN		_T("train_SPAM.ems")
+#define SZ_NAME_FILE_NORMAL_TRAIN	_T("train_GEN.ems")
 #define SZ_NAME_FILE_SPAM_TEST		_T("test_SPAM.ems")
 #define SZ_NAME_FILE_NORMAL_TEST	_T("test_GEN.ems")
 
@@ -59,7 +59,7 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton2();
 
-	void GetMail(__in CString sPath, __out CStringList& sListMail);
+	void GetMail(__in CString sPath, __out CStringList& sListMail, int nStatus = 0);
 	void GetKey(TOKEN_LIST listNormal[], TOKEN_LIST listSpam[], __out CStringList& listKey);
 	void GetKeyNew(TOKEN_LIST listNormal[], TOKEN_LIST listSpam[], __out CStringList& listKey);
 	void VerifyKey(CStringList& listKey);
